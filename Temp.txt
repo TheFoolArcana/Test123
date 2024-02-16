@@ -1,0 +1,157 @@
+public class Subscription {
+
+    private String id;
+    private String authId;
+    private String patientId;
+    private SubscriptionStatus status;
+    private Instant end;
+    private String reason;
+    private String criteria;
+    private String error;
+    private String endpoint;
+    private String dpEndpoint;
+    private String payload;
+
+    // Private constructor to enforce the use of the builder
+    private Subscription(Builder builder) {
+        this.id = builder.id;
+        this.authId = builder.authId;
+        this.patientId = builder.patientId;
+        this.status = builder.status;
+        this.end = builder.end;
+        this.reason = builder.reason;
+        this.criteria = builder.criteria;
+        this.error = builder.error;
+        this.endpoint = builder.endpoint;
+        this.dpEndpoint = builder.dpEndpoint;
+        this.payload = builder.payload;
+    }
+
+    // Getter methods for all fields
+    public String getId() {
+        return id;
+    }
+
+    public String getAuthId() {
+        return authId;
+    }
+
+    public String getPatientId() {
+        return patientId;
+    }
+
+    public SubscriptionStatus getStatus() {
+        return status;
+    }
+
+    public Instant getEnd() {
+        return end;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public String getCriteria() {
+        return criteria;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public String getEndpoint() {
+        return endpoint;
+    }
+
+    public String getDpEndpoint() {
+        return dpEndpoint;
+    }
+
+    public String getPayload() {
+        return payload;
+    }
+
+    // Builder class for Subscription
+    public static class Builder {
+        private String id;
+        private String authId;
+        private String patientId;
+        private SubscriptionStatus status;
+        private Instant end;
+        private String reason;
+        private String criteria;
+        private String error;
+        private String endpoint;
+        private String dpEndpoint;
+        private String payload;
+
+        // Setter methods for all fields
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder authId(String authId) {
+            this.authId = authId;
+            return this;
+        }
+
+        public Builder patientId(String patientId) {
+            this.patientId = patientId;
+            return this;
+        }
+
+        public Builder status(SubscriptionStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        public Builder end(Instant end) {
+            this.end = end;
+            return this;
+        }
+
+        public Builder reason(String reason) {
+            this.reason = reason;
+            return this;
+        }
+
+        public Builder criteria(String criteria) {
+            this.criteria = criteria;
+            return this;
+        }
+
+        public Builder error(String error) {
+            this.error = error;
+            return this;
+        }
+
+        public Builder endpoint(String endpoint) {
+            this.endpoint = endpoint;
+            return this;
+        }
+
+        public Builder dpEndpoint(String dpEndpoint) {
+            this.dpEndpoint = dpEndpoint;
+            return this;
+        }
+
+        public Builder payload(String payload) {
+            this.payload = payload;
+            return this;
+        }
+
+        // Build method to create an instance of Subscription
+        public Subscription build() {
+            // Validate required fields before creating the instance
+            if (id == null) {
+                throw new IllegalStateException("id cannot be null");
+            }
+            if (status == null) {
+                throw new IllegalStateException("status cannot be null");
+            }
+
+            return new Subscription(this);
+        }
+    }
